@@ -1,0 +1,89 @@
+# Programa para calcular el área de un círculo y un rectángulo, y convertir de grados Celsius a Fahrenheit.
+
+import math
+
+def calcular_area_circulo(radio):
+    """
+    Calcula el área de un círculo dado su radio.
+    
+    Parámetros:
+    radio (float): El radio del círculo.
+    
+    Retorna:
+    float: El área del círculo.
+    """
+    return math.pi * radio ** 2
+
+def calcular_area_rectangulo(longitud, ancho):
+    """
+    Calcula el área de un rectángulo dada su longitud y ancho.
+    
+    Parámetros:
+    longitud (float): La longitud del rectángulo.
+    ancho (float): El ancho del rectángulo.
+    
+    Retorna:
+    float: El área del rectángulo.
+    """
+    return longitud * ancho
+
+def celsius_a_fahrenheit(grados_celsius):
+    """
+    Convierte una temperatura de grados Celsius a Fahrenheit.
+    
+    Parámetros:
+    grados_celsius (float): La temperatura en grados Celsius.
+    
+    Retorna:
+    float: La temperatura en grados Fahrenheit.
+    """
+    return grados_celsius * 9/5 + 32
+
+def mostrar_menu():
+    """
+    Muestra el menú de opciones al usuario.
+    
+    Retorna:
+    int: La opción seleccionada por el usuario.
+    """
+    print("Seleccione una opción:")
+    print("1. Calcular el área de un círculo")
+    print("2. Calcular el área de un rectángulo")
+    print("3. Convertir grados Celsius a Fahrenheit")
+    print("4. Salir")
+    opcion = int(input("Ingrese el número de opción: "))
+    return opcion
+
+def main():
+    """
+    Función principal del programa que gestiona la lógica de las opciones seleccionadas por el usuario.
+    """
+    while True:
+        opcion = mostrar_menu()
+        
+        if opcion == 1:
+            radio = float(input("Ingrese el radio del círculo: "))
+            area_circulo = calcular_area_circulo(radio)
+            print(f"El área del círculo con radio {radio} es {area_circulo:.2f}")
+        
+        elif opcion == 2:
+            longitud = float(input("Ingrese la longitud del rectángulo: "))
+            ancho = float(input("Ingrese el ancho del rectángulo: "))
+            area_rectangulo = calcular_area_rectangulo(longitud, ancho)
+            print(f"El área del rectángulo con longitud {longitud} y ancho {ancho} es {area_rectangulo:.2f}")
+        
+        elif opcion == 3:
+            grados_celsius = float(input("Ingrese la temperatura en grados Celsius: "))
+            grados_fahrenheit = celsius_a_fahrenheit(grados_celsius)
+            print(f"{grados_celsius} grados Celsius son {grados_fahrenheit:.2f} grados Fahrenheit")
+        
+        elif opcion == 4:
+            print("Gracias por usar el programa. ¡Adiós!")
+            break
+        
+        else:
+            print("Opción no válida. Por favor, intente de nuevo.")
+
+# Ejecución del programa
+if __name__ == "__main__":
+    main()
