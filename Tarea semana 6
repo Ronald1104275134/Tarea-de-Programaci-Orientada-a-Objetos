@@ -1,0 +1,36 @@
+class ConversorMoneda:
+    def __init__(self, tasa_cambio):
+        self.tasa_cambio = tasa_cambio
+
+    def dolares_a_soles(self, cantidad_dolares):
+        return cantidad_dolares * self.tasa_cambio
+
+    def __str__(self):
+        return f'Conversor de moneda con tasa de cambio: {self.tasa_cambio}'
+
+# Clase derivada para mostrar polimorfismo
+class ConversorMonedaPeru(ConversorMoneda):
+    def __init__(self, tasa_cambio):
+        super().__init__(tasa_cambio)
+
+    def dolares_a_soles(self, cantidad_dolares):
+        return super().dolares_a_soles(cantidad_dolares)
+
+# Función para interactuar con el usuario en Google Colab
+def main():
+    # Crear una instancia del conversor con la tasa de cambio actual (por ejemplo, 3.8 soles por dólar)
+    conversor_peru = ConversorMonedaPeru(3.8)
+
+    # Solicitar al usuario que ingrese la cantidad de dólares a convertir
+    cantidad_dolares = float(input("Ingresa la cantidad de dólares a convertir: "))
+
+    # Convertir la cantidad ingresada a soles peruanos
+    cantidad_soles = conversor_peru.dolares_a_soles(cantidad_dolares)
+    print(f"{cantidad_dolares} dólares son {cantidad_soles} soles peruanos.")
+
+    # Mostrar información del conversor
+    print(conversor_peru)
+
+# Ejecutar la función principal
+if __name__ == "__main__":
+    main()
