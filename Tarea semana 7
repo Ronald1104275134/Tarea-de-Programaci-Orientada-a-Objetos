@@ -1,0 +1,29 @@
+# Definición de la clase
+class Persona:
+    # Constructor: se inicializan los atributos del objeto
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+        print(f'Se ha creado una persona llamada {self.nombre} de {self.edad} años.')
+
+    # Destructor: se realiza la limpieza o cierre de recursos
+    def __del__(self):
+        print(f'El objeto persona {self.nombre} ha sido destruido.')
+
+    # Método para mostrar información de la persona
+    def mostrar_informacion(self):
+        print(f'Nombre: {self.nombre}, Edad: {self.edad}')
+
+# Crear instancias de la clase Persona
+persona1 = Persona('Juan', 30)
+persona2 = Persona('Ana', 25)
+
+# Mostrar información de las personas
+persona1.mostrar_informacion()
+persona2.mostrar_informacion()
+
+# Forzar la eliminación de una instancia para ver el destructor en acción
+del persona1
+
+# Código para mantener el programa en ejecución
+input("Presiona Enter para finalizar...")
